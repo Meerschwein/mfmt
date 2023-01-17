@@ -1,0 +1,54 @@
+[formatter.nix]
+command = "alejandra"
+includes = ["*.nix"]
+
+[formatter.shell]
+command = "shfmt"
+includes = ["*.sh"]
+options = [
+  "-i",
+  "2",  # indent 2
+  "-s", # simplify the code
+  "-w", # write back to the file
+]
+
+[formatter.golang]
+command = "gofumpt"
+includes = ["*.go"]
+options = [
+  "-w", # write to file
+  "--extra", # more rules
+]
+
+[formatter.lua]
+command = "lua-format"
+includes = ["*.lua"]
+options = [
+  "-i", # inplace
+  "--column-limit=90",
+  "--indent-width=2",
+  "--tab-width=2",
+  "--column-table-limit=90",
+  "--continuation-indent-width=2",
+  "--spaces-before-call=1",
+  "--no-use-tab",
+  "--keep-simple-control-block-one-line",
+  "--keep-simple-function-one-line",
+  "--align-args",
+  "--no-break-after-functioncall-lp",
+  "--no-break-before-functioncall-rp",
+  "--align-parameter",
+  "--align-table-field",
+  "--break-after-table-lb",
+  "--break-before-table-rb",
+  "--chop-down-table",
+  "--chop-down-kv-table",
+  "--extra-sep-at-table-end",
+  "--no-break-after-operator",
+  "--single-quote-to-double-quote",
+  "--no-spaces-inside-functiondef-parens",
+  "--no-spaces-inside-functioncall-parens",
+  "--spaces-inside-table-braces",
+  "--spaces-around-equals-in-field",
+  "--line-breaks-after-function-body=1",
+]
